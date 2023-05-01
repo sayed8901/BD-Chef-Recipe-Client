@@ -6,7 +6,7 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
-    const { setUser, userLogin, googleSignIn } = useContext(AuthContext);
+  const { setUser, userLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     setErrorMsg("");
@@ -21,10 +21,10 @@ const Login = () => {
 
     userLogin(email, password)
       .then((result) => {
-        const newUser = result.user;
-        console.log(newUser);
+        const loggedUser = result.user;
+        console.log(loggedUser);
         setSuccessMsg("User Successfully Logged in");
-        setUser(newUser);
+        setUser(loggedUser);
 
         form.reset();
       })
@@ -34,20 +34,35 @@ const Login = () => {
       });
   };
 
-//   log in with google popup
-const handleGoogleLogIn = () => {
+  //   log in with google popup
+  const handleGoogleLogIn = () => {
     googleSignIn()
-    .then((result) => {
-        const newUser = result.user;
-        console.log(newUser);
+      .then((result) => {
+        const googleUser = result.user;
+        console.log(googleUser);
         setSuccessMsg("User Successfully Logged in with Google");
-        setUser(newUser);
+        setUser(googleUser);
       })
       .catch((error) => {
         console.log(error.message);
         setErrorMsg(error.message);
       });
-}
+  };
+
+  //   log in with google popup
+  const handleGitHubLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const gitHubUser = result.user;
+        console.log(gitHubUser);
+        setSuccessMsg("User Successfully Logged in with Google");
+        setUser(gitHubUser);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setErrorMsg(error.message);
+      });
+  };
 
   return (
     <form onSubmit={handleLogin} className="card-body w-1/3 mx-auto">
@@ -90,8 +105,10 @@ const handleGoogleLogIn = () => {
       <div className="mt-5">
         <h4 className="mb-5 text-center">More Login options</h4>
         <div className="btn-group btn-group-vertical flex gap-4 mx-auto">
-          <div onClick={handleGoogleLogIn} className="btn btn-active">Login with Google</div>
-          <div className="btn">Login with GitHub</div>
+          <div onClick={handleGoogleLogIn} className="btn btn-active">
+            Login with Google
+          </div>
+          <div onClick={handleGitHubLogIn} className="btn">Login with GitHub</div>
         </div>
       </div>
 

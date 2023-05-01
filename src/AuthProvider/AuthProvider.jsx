@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from './FirebaseAuth';
 
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
@@ -32,6 +33,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider)
     };
 
+    // log in with gitHub
+    const gitHubSignIn = () => {
+        return signInWithPopup(auth, gitHubProvider)
+    };
+
     const logOut = () => {
         return signOut(auth);
     };
@@ -46,7 +52,7 @@ const AuthProvider = ({children}) => {
         return () => unmount();
     } , [] )
 
-    const AuthInfo = { user, setUser, updateUserData, createNewUserByMail, userLogin, googleSignIn, logOut }
+    const AuthInfo = { user, setUser, updateUserData, createNewUserByMail, userLogin, googleSignIn, gitHubSignIn, logOut }
 
     return (
         <AuthContext.Provider value={AuthInfo}>

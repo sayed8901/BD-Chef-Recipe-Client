@@ -60,7 +60,7 @@ const Header = () => {
         </div>
 
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
-          Burj Al Paradise
+          BD Chefs Recipe
         </Link>
       </div>
 
@@ -96,7 +96,7 @@ const Header = () => {
       
       <div className="navbar-end">
         {user ? (
-          <div className="flex gap-2 justify-center items-center">
+          <div className="flex gap-4 justify-center items-center">
             <img title={user.displayName} className="rounded-full w-12" src={user.photoURL} alt="" />
             <button onClick={logOut} className="btn btn-primary">
               Log out
