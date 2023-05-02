@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center justify-between p-4 bg-neutral text-neutral-content">
+    <footer className="footer items-center justify-between p-4 bg-neutral text-neutral-content fixed bottom-0">
       <div className="items-center grid-flow-col">
         <Link to={"/about"} className="normal-case text-xl font-bold">
           BD Chefs Recipe

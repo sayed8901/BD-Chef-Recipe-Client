@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-//   console.log(user);
+  //   console.log(user);
 
   return (
     // <h1>navbar</h1>
@@ -33,28 +33,28 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-                <NavLink
+              <NavLink
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "")}
-                >
+              >
                 Home
-                </NavLink>
+              </NavLink>
             </li>
             <li>
-                <NavLink
+              <NavLink
                 to="/blog"
                 className={({ isActive }) => (isActive ? "active" : "")}
-                >
+              >
                 Blog
-                </NavLink>
+              </NavLink>
             </li>
             <li>
-                <NavLink
+              <NavLink
                 to="/about"
                 className={({ isActive }) => (isActive ? "active" : "")}
-                >
+              >
                 About
-                </NavLink>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -93,11 +93,13 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      
+
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-4 justify-center items-center">
-            <img title={user.displayName} className="rounded-full w-12" src={user.photoURL} alt="" />
+            <div className="tooltip tooltip-bottom tooltip-primary" data-tip={user.displayName}>
+              <img className="rounded-full w-12" src={user.photoURL} alt="" />
+            </div>
             <button onClick={logOut} className="btn btn-primary w-24">
               Log out
             </button>
