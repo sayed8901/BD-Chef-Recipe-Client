@@ -17,7 +17,7 @@ const ErrorPage = () => {
         <div>
           <div className="text-red-500">
             <h1 className="text-7xl font-bold">Oops!</h1>
-            <h1 className="text-5xl font-bold">Error Occured!!</h1>
+            <h1 className="pt-4 text-3xl font-bold">Error Occurred!! Page not found!!!</h1>
           </div>
           <p className="py-6 text-2xl ">
             You May check the path or route & try again
