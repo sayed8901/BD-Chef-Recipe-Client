@@ -6,7 +6,7 @@ const Registration = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
-  const { createNewUserByMail, updateUserData } = useContext(AuthContext);
+  const { setUser, createNewUserByMail, updateUserData } = useContext(AuthContext);
   //   console.log(createNewUserByMail);
 
   const handleRegister = (e) => {
@@ -25,7 +25,7 @@ const Registration = () => {
     createNewUserByMail(email, password)
       .then((result) => {
         const newUser = result.user;
-        console.log(newUser);
+        // console.log(newUser);
         setSuccessMsg("New User has been Created Successfully");
 
         //   updating user name to firebase auth
@@ -34,13 +34,15 @@ const Registration = () => {
             const successMessage = 'User profile has been successfully updated.';
             console.log(successMessage);
             setSuccessMsg(successMessage);
+            setUser(newUser);
+            console.log(newUser);
         })
         .catch((error) => {
             console.log(error.message);
             setErrorMsg(error.message);
         })
-
         form.reset();
+    
       })
       .catch((error) => {
         console.log(error.message);
@@ -109,7 +111,7 @@ const Registration = () => {
         </Link>
       </small>
 
-      <p className="text-center">{errorMsg ? errorMsg : successMsg}</p>
+      <p className="text-center my-5">{errorMsg ? errorMsg : successMsg}</p>
     </form>
   );
 };

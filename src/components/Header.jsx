@@ -98,13 +98,13 @@ const Header = () => {
         {user ? (
           <div className="flex gap-4 justify-center items-center">
             <img title={user.displayName} className="rounded-full w-12" src={user.photoURL} alt="" />
-            <button onClick={logOut} className="btn btn-primary">
+            <button onClick={logOut} className="btn btn-primary w-24">
               Log out
             </button>
           </div>
         ) : (
           <button>
-            <Link to={"/login"} className="btn btn-primary">
+            <Link to={"/login"} className="btn btn-primary w-24">
               log in
             </Link>
           </button>

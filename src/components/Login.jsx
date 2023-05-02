@@ -25,7 +25,6 @@ const Login = () => {
         console.log(loggedUser);
         setSuccessMsg("User Successfully Logged in");
         setUser(loggedUser);
-
         form.reset();
       })
       .catch((error) => {
@@ -51,7 +50,7 @@ const Login = () => {
 
   //   log in with google popup
   const handleGitHubLogIn = () => {
-    googleSignIn()
+    gitHubSignIn()
       .then((result) => {
         const gitHubUser = result.user;
         console.log(gitHubUser);
@@ -112,7 +111,7 @@ const Login = () => {
         </div>
       </div>
 
-      <p className="text-center">{errorMsg ? errorMsg : successMsg}</p>
+      <p className="text-center my-5">{errorMsg ? errorMsg : successMsg}</p>
     </form>
   );
 };
