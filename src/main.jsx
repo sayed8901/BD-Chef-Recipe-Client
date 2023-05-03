@@ -17,6 +17,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './components/Home.jsx';
 import Chefs from './components/Chefs.jsx';
+import Chef from './components/Chef.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,8 +48,13 @@ const router = createBrowserRouter([
       {
         path: "/chef",
         element: <Chefs></Chefs>
-      }
-    ],
+      },
+      {
+        path: '/chef/:id',
+        element: <Chef></Chef>,
+        loader: ({params}) => fetch(`https://chefs-recipe-server-sayed8901.vercel.app/chef/${params.id}`)
+      },
+    ]
   },
   {
     path: "*",

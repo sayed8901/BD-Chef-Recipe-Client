@@ -34,10 +34,10 @@ const Header = () => {
           >
             <li>
               <NavLink
-                to="/"
+                to="/chef"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Home
+                All Chefs
               </NavLink>
             </li>
             <li>
@@ -69,10 +69,10 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <NavLink
-              to="/"
+              to="/chef"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Home
+              All Chefs
             </NavLink>
           </li>
           <li>

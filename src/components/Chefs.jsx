@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ChefCard from "./ChefCard";
 
 const Chefs = () => {
@@ -11,8 +11,7 @@ const Chefs = () => {
       .then((data) => setChef(data))
       .catch((error) => console.log(error));
   }, []);
-
-  //   console.log(chef);
+    // console.log(chef);
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -27,8 +26,9 @@ const Chefs = () => {
             You can contact our professional chefs for any of your social
             occasion or festival caterings.
           </p>
+
           <div className="my-container hero">
-            <Marquee speed={50} pauseOnHover={true}>
+            <Marquee speed={100} pauseOnHover={true}>
             {
                 chef.map(individualChef => <ChefCard
                     key={individualChef.id}
