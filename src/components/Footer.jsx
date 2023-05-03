@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center justify-between p-4 bg-neutral text-neutral-content fixed bottom-0">
-      <div className="items-center grid-flow-col">
-        <Link to={"/about"} className="normal-case text-xl font-bold">
+    <footer className="footer items-center justify-between p-4 bg-neutral text-neutral-content fixed bottom-0 flex gap-6">
+      <div className="items-center">
+        <Link to={"/blog"} className="normal-case text-sm sm:text-xl font-bold">
           BD Chefs Recipe
         </Link>
       </div>
-      <div className="items-center grid-flow-col">
+      <div className="items-center">
         <p>Copyright © 2023 - All right reserved</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <div className="grid-flow-col gap-4">
         <a>
           <svg
             xmlns="http://www.w3.org/2000/svg"

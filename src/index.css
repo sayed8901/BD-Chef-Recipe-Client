@@ -4,6 +4,10 @@
 
 
 /* custom css library building using @apply for reusing purpose */
+.my-container{
+  @apply p-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8
+}
+
 .active{
   @apply font-extrabold tracking-wide text-white transition-colors duration-100 hover:text-purple-500
 }

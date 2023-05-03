@@ -53,7 +53,7 @@ const Header = () => {
                 to="/about"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                About
+                About us
               </NavLink>
             </li>
           </ul>
@@ -88,7 +88,7 @@ const Header = () => {
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              About
+              About us
             </NavLink>
           </li>
         </ul>
