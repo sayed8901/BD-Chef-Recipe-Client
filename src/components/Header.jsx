@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     // <h1>navbar</h1>
-    <div className="navbar bg-purple-400 sticky top-0 z-10">
+    <div className="navbar sticky top-0 z-10 gradient-color text-black">
       <div className="navbar-start">
         {/* navbar for small screen */}
         <div className="dropdown">

@@ -20,7 +20,7 @@ const Blog = () => {
       {/* Q&A part */}
       {/* question # 1 */}
       <div className="border border-slate-200 rounded-md p-4 mb-8 md:mb-12">
-        <h3 className="font-bold mb-4 border-b-4 border-slate-100">
+        <h3 className="font-bold mb-4 border-b-2 pb-3 border-slate-100">
           A. Differences between uncontrolled and controlled components.
         </h3>
         <p className="px-8">
@@ -58,7 +58,7 @@ const Blog = () => {
 
       {/* question # 2 */}
       <div className="border border-slate-200 rounded-md p-4 mb-8 md:mb-12">
-        <h3 className="font-bold mb-4 border-b-4 border-slate-100">
+        <h3 className="font-bold mb-4 border-b-2 pb-3 border-slate-100">
           B. How to validate React props using PropTypes?
         </h3>
         <p className="px-8">
@@ -78,7 +78,7 @@ const Blog = () => {
 
       {/* question # 3 */}
       <div className="border border-slate-200 rounded-md p-4 mb-8 md:mb-12">
-        <h3 className="font-bold mb-4 border-b-4 border-slate-100">
+        <h3 className="font-bold mb-4 border-b-2 pb-3 border-slate-100">
           C. Difference between nodejs and express js.
         </h3>
         <p className="px-8">
@@ -116,7 +116,7 @@ const Blog = () => {
 
       {/* question # 4 */}
       <div className="border border-slate-200 rounded-md p-4 mb-8 md:mb-12">
-        <h3 className="font-bold mb-4 border-b-4 border-slate-100">
+        <h3 className="font-bold mb-4 border-b-2 pb-3 border-slate-100">
           D. What is custom Hook in React? why will you create a custom hook?
         </h3>
         <p className="px-8">

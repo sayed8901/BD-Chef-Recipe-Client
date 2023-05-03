@@ -15,6 +15,7 @@ import Blog from './components/Blog.jsx';
 import About from './components/About.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
+import Home from './components/Home.jsx';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout></Layout>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
       {
         path: "/login",
         element: <Login></Login>,

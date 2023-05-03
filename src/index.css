@@ -11,3 +11,7 @@
 .active{
   @apply font-extrabold tracking-wide text-white transition-colors duration-100 hover:text-purple-500
 }
+
+.gradient-color{
+  background: linear-gradient(90deg, #7E90FE 0%, #9873FF 100%)
+}
