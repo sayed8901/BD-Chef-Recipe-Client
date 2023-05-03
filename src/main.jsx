@@ -16,6 +16,7 @@ import About from './components/About.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './components/Home.jsx';
+import Chefs from './components/Chefs.jsx';
 
 
 const router = createBrowserRouter([
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login></Login>
       },
       {
         path: "/register",
-        element: <Registration></Registration>,
+        element: <Registration></Registration>
       },
       {
         path: "/blog",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>
+      },
+      {
+        path: "/chef",
+        element: <Chefs></Chefs>
       }
     ],
   },
