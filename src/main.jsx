@@ -12,12 +12,13 @@ import Layout from './layout/Layout.jsx';
 import Login from './components/Login.jsx';
 import Registration from './components/Registration.jsx';
 import Blog from './components/Blog.jsx';
-import About from './components/About.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './components/Home.jsx';
 import Chefs from './components/Chefs.jsx';
 import Chef from './components/Chef.jsx';
+import Services from './components/Services.jsx';
+import Contact from './components/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
-        path: "/about",
-        element: <About></About>
+        path: "/services",
+        element: <Services></Services>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
       },
       {
         path: "/chef",

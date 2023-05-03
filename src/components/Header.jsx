@@ -50,10 +50,18 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/services"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                About us
+                Our Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Contact us
               </NavLink>
             </li>
           </ul>
@@ -85,10 +93,18 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/about"
+              to="/services"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              About us
+              Our Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Contact us
             </NavLink>
           </li>
         </ul>

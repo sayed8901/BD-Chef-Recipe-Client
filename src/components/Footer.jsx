@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer items-center justify-between p-4 bg-neutral text-neutral-content fixed bottom-0 flex gap-6">
       <div className="items-center">
-        <Link to={"/blog"} className="normal-case text-sm sm:text-xl font-bold">
+        <Link to={"/contact"} className="normal-case text-sm sm:text-xl font-bold">
           BD Chefs Recipe
         </Link>
       </div>
