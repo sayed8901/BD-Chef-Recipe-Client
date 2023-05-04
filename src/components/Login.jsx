@@ -36,16 +36,19 @@ const Login = () => {
     // validation
 
     if (!/(?=.*[A-Z])/.test(password)) {
-      setErrorMsg("At least one character should be in uppercase!");
+      setErrorMsg("At least 1 character should be in uppercase!");
       return;
-    } else if (!/(?=.*[a-z].*[a-z].*[a-z])/.test(password)) {
-      setErrorMsg("At least three characters should be in lowercase!");
+    } else if (!/(?=.*[a-z].*[a-z])/.test(password)) {
+      setErrorMsg("At least 2 characters should be in lowercase!");
       return;
-    } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
-      setErrorMsg("Password should contain at least 2 numbers!");
+    } else if (!/(?=.*[0-9])/.test(password)) {
+      setErrorMsg("Password should contain at least 1 numbers!");
       return;
     } else if (!/(?=.*[!@#$&*])/.test(password)) {
-      setErrorMsg("There should be at least one special character!");
+      setErrorMsg("There should be at least 1 special character!");
+      return;
+    } else if (!/.{6}/.test(password)) {
+      setErrorMsg("Password should contain at least 6 characters!");
       return;
     }
 

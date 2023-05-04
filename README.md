@@ -36,6 +36,10 @@ All  chef data server link: https://chefs-recipe-server-sayed8901.vercel.app/che
 Individual chef data server link: https://chefs-recipe-server-sayed8901.vercel.app/chef/3
 
 
+Services & contact info of chef server link: https://chefs-recipe-server-sayed8901.vercel.app/info
+
+
+
 
 GitHub Repository Links: 
 

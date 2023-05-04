@@ -1,5 +1,7 @@
 import React from "react";
 import Chefs from "./Chefs";
+import Services from "./Services";
+import Contact from "./Contact";
 
 
 const Home = () => {
@@ -33,6 +35,8 @@ const Home = () => {
       </div>
 
       <Chefs></Chefs>
+      <Services></Services>
+      <Contact></Contact>
     </div>
   );
 };
