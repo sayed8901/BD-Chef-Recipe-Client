@@ -154,11 +154,25 @@ const Login = () => {
       <div className="mt-5">
         <h4 className="mb-5 text-center">More Login options</h4>
         <div className="btn-group btn-group-vertical flex gap-4 mx-auto">
-          <div onClick={handleGoogleLogIn} className="btn btn-active">
-            Login with Google
+          {/* Google log in btn */}
+          <div onClick={handleGoogleLogIn} className="btn btn-active gap-4">
+            <span>
+              <img className="w-6"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png"
+                alt=""
+              />
+            </span>
+            <span>Login with Google</span>
           </div>
-          <div onClick={handleGitHubLogIn} className="btn">
-            Login with GitHub
+          {/* GitHub log in btn */}
+          <div onClick={handleGitHubLogIn} className="btn gap-4">
+          <span>
+              <img className="w-6"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjl1XRlAmb5KiajU1cpS9nQ2cFRBa4t5sukA&usqp=CAU"
+                alt=""
+              />
+            </span>
+            <span>Login with GitHub</span>
           </div>
         </div>
       </div>

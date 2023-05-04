@@ -14,8 +14,9 @@ Features of this web-site:
 
 * If you want more to explore, you can check out "Blog" section. Here you can find some conceptual writings regarding basic & some intermediate ReactJS topics.
 
-
 * Anyway, in order to view or go to the Chef Recipe page, you need to "log in". If you are new to our site, check out the "Register Now" button. However, you can also log in with your "Google" or "GutHub" account.
+
+* Here, firebase is used for authentication management. It s easy & more user friendly. Anyway, if you have any difficulty regarding security issue, you can contact with us.
 
 
 
@@ -25,8 +26,15 @@ Features of this web-site:
 Important links:
 
 firebase deploy website live link:
+
 https://bd-chef-recipe-world-reactauth.web.app
 
+
+
+
+
+
+Extra info:
 
 
 Server-side links:
