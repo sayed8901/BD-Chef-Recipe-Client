@@ -37,7 +37,7 @@ const Header = () => {
                 to="/chef"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                All Chefs
+                Chefs
               </NavLink>
             </li>
             <li>
@@ -80,7 +80,7 @@ const Header = () => {
               to="/chef"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              All Chefs
+              Chefs
             </NavLink>
           </li>
           <li>
