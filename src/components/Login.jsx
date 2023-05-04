@@ -6,13 +6,20 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
-  const { setUser, userLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleToggle = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const { setUser, userLogin, googleSignIn, gitHubSignIn } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
   const fromLocation = location.state?.from?.pathname || "/";
-  console.log(fromLocation);
+  // console.log(fromLocation);
 
   const handleLogin = (e) => {
     setErrorMsg("");
@@ -25,6 +32,24 @@ const Login = () => {
     const password = form.password.value;
     // console.log(email, password);
 
+
+    // validation
+
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setErrorMsg("At least one character should be in uppercase!");
+      return;
+    } else if (!/(?=.*[a-z].*[a-z].*[a-z])/.test(password)) {
+      setErrorMsg("At least three characters should be in lowercase!");
+      return;
+    } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+      setErrorMsg("Password should contain at least 2 numbers!");
+      return;
+    } else if (!/(?=.*[!@#$&*])/.test(password)) {
+      setErrorMsg("There should be at least one special character!");
+      return;
+    }
+
+    
     userLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -32,7 +57,7 @@ const Login = () => {
         setSuccessMsg("User Successfully Logged in");
         setUser(loggedUser);
         form.reset();
-        navigate(fromLocation, {replace: true});
+        navigate(fromLocation, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -48,6 +73,7 @@ const Login = () => {
         console.log(googleUser);
         setSuccessMsg("User Successfully Logged in with Google");
         setUser(googleUser);
+        navigate(fromLocation, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -63,6 +89,7 @@ const Login = () => {
         console.log(gitHubUser);
         setSuccessMsg("User Successfully Logged in with Google");
         setUser(gitHubUser);
+        navigate(fromLocation, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -71,7 +98,10 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="card-body w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[40%] 2xl:max-w-[30%] mx-auto -mt-6">
+    <form
+      onSubmit={handleLogin}
+      className="card-body w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[40%] 2xl:max-w-[30%] mx-auto -mt-6"
+    >
       <div className="form-control">
         <label className="label">
           <span className="label-text">Email</span>
@@ -88,13 +118,18 @@ const Login = () => {
         <label className="label">
           <span className="label-text">Password</span>
         </label>
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          className="input input-bordered"
-          required
-        />
+        <div className="flex justify-between items-center gap-4">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="password"
+            className="input input-bordered w-full"
+            required
+          />
+          <span className="btn w-20" onClick={handleToggle}>
+            {showPassword ? "Hide" : "Show"}
+          </span>
+        </div>
       </div>
 
       <div className="form-control mt-3">
@@ -114,11 +149,19 @@ const Login = () => {
           <div onClick={handleGoogleLogIn} className="btn btn-active">
             Login with Google
           </div>
-          <div onClick={handleGitHubLogIn} className="btn">Login with GitHub</div>
+          <div onClick={handleGitHubLogIn} className="btn">
+            Login with GitHub
+          </div>
         </div>
       </div>
 
-      <p className="text-center my-2">{errorMsg ? errorMsg : successMsg}</p>
+      <p
+        className={`text-center my-1 text-xl ${
+          errorMsg ? "text-primary" : "text-success"
+        }`}
+      >
+        {errorMsg ? errorMsg : successMsg}
+      </p>
     </form>
   );
 };

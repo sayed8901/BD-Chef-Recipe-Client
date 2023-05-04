@@ -3,12 +3,13 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="my-container mb-8">
+      
       <h1 className="text-4xl font-bold text-center mt-4 mb-8">
         Welcome to my blog!
       </h1>
 
       <div className="text-center my-16">
-        <h2 className="text-2xl font-bold text-center mb-4">
+        <h2 className="text-2xl font-bold text-center mb-8">
           Some intermediate concepts about React
         </h2>
         <h4>
