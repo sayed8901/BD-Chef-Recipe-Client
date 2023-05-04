@@ -39,13 +39,17 @@ const Contact = () => {
             />
           </figure>
           <div className="card-body">
-            <div className="text-2xl font-semibold flex flex-col mb-4 content-start">
-              <span>{address?.street},</span>
-              <span>
-                {address?.city}, {address?.state}-{address?.zip},{" "}
-                {address?.country},
-              </span>
-            </div>
+            {address && (
+              <LazyLoad>
+                <div className="text-2xl font-semibold flex flex-col mb-4 content-start">
+                  <span>{address.street},</span>
+                  <span>
+                    {address.city}, {address.state}-{address.zip},{" "}
+                    {address.country},
+                  </span>
+                </div>
+              </LazyLoad>
+            )}
             <p>
               Phone number: <b>{phone}</b>
             </p>

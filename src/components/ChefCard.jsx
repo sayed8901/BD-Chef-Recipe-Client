@@ -10,7 +10,7 @@ const ChefCard = ({ individualChef }) => {
     <div className="card card-side bg-base-100 shadow-xl mx-8">
       <LazyLoad>
         <figure className="w-48 h-full">
-          <img src={picture} alt="Movie" />
+          <img className="rounded-xl" src={picture} alt="Movie" />
         </figure>
       </LazyLoad>
       <div className="card-body text-left">
