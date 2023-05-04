@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Registration = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const navigate = useNavigate();
 
   const { setUser, createNewUserByMail, updateUserData } = useContext(AuthContext);
   //   console.log(createNewUserByMail);
@@ -42,6 +43,7 @@ const Registration = () => {
             setErrorMsg(error.message);
         })
         form.reset();
+        navigate('/login');
     
       })
       .catch((error) => {
@@ -51,7 +53,7 @@ const Registration = () => {
   };
 
   return (
-    <form onSubmit={handleRegister} className="card-body w-1/3 mx-auto">
+    <form onSubmit={handleRegister} className="card-body w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[40%] 2xl:max-w-[30%] mx-auto -mt-6">
       <div className="form-control">
         <label className="label">
           <span className="label-text">Name</span>
@@ -111,7 +113,7 @@ const Registration = () => {
         </Link>
       </small>
 
-      <p className="text-center my-5">{errorMsg ? errorMsg : successMsg}</p>
+      <p className="text-center my-2">{errorMsg ? errorMsg : successMsg}</p>
     </form>
   );
 };

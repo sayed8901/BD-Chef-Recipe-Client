@@ -31,7 +31,7 @@ const Recipe = ({ recipe }) => {
           <b>Ingredients:</b>
           {ingredients.map((item) => (
             // eslint-disable-next-line react/jsx-key
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </div>
         <p className="mb-4">

@@ -42,14 +42,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/blog"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/services"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
@@ -64,10 +56,18 @@ const Header = () => {
                 Contact us
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Blog
+              </NavLink>
+            </li>
           </ul>
         </div>
 
-        <Link to={"/"} className="btn btn-ghost normal-case text-xl">
+        <Link to={"/"} className="btn btn-ghost normal-case text-base sm:text-xl">
           BD Chefs Recipe
         </Link>
       </div>
@@ -85,14 +85,6 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/blog"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Blog
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/services"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
@@ -105,6 +97,14 @@ const Header = () => {
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               Contact us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Blog
             </NavLink>
           </li>
         </ul>

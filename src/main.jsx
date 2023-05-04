@@ -19,6 +19,7 @@ import Chefs from './components/Chefs.jsx';
 import Chef from './components/Chef.jsx';
 import Services from './components/Services.jsx';
 import Contact from './components/Contact.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/chef/:id',
-        element: <Chef></Chef>,
+        element: <ProtectedRoute><Chef></Chef></ProtectedRoute>,
         loader: ({params}) => fetch(`https://chefs-recipe-server-sayed8901.vercel.app/chef/${params.id}`)
       },
     ]

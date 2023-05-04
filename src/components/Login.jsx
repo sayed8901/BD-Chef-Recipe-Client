@@ -64,7 +64,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="card-body w-1/3 mx-auto">
+    <form onSubmit={handleLogin} className="card-body w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[40%] 2xl:max-w-[30%] mx-auto -mt-6">
       <div className="form-control">
         <label className="label">
           <span className="label-text">Email</span>
@@ -111,7 +111,7 @@ const Login = () => {
         </div>
       </div>
 
-      <p className="text-center my-5">{errorMsg ? errorMsg : successMsg}</p>
+      <p className="text-center my-2">{errorMsg ? errorMsg : successMsg}</p>
     </form>
   );
 };

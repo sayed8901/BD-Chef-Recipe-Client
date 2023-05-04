@@ -4,7 +4,7 @@ import Chefs from "./Chefs";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mb-8">
       <div
         className="hero min-h-screen mb-24"
         style={{

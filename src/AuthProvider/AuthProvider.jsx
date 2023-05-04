@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
         return () => unmount();
     } , [] )
 
-    const AuthInfo = { user, setUser, updateUserData, createNewUserByMail, userLogin, googleSignIn, gitHubSignIn, logOut }
+    const AuthInfo = { user, setUser, updateUserData, createNewUserByMail, userLogin, googleSignIn, gitHubSignIn, logOut, loading }
 
     return (
         <AuthContext.Provider value={AuthInfo}>
