@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import LazyLoad from "react-lazy-load";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -67,7 +68,10 @@ const Header = () => {
           </ul>
         </div>
 
-        <Link to={"/"} className="btn btn-ghost normal-case text-base sm:text-xl">
+        <Link
+          to={"/"}
+          className="btn btn-ghost normal-case text-base sm:text-xl"
+        >
           BD Chefs Recipe
         </Link>
       </div>
@@ -113,8 +117,13 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-4 justify-center items-center">
-            <div className="tooltip tooltip-bottom tooltip-primary" data-tip={user.displayName}>
-              <img className="rounded-full w-12" src={user.photoURL} alt="" />
+            <div
+              className="tooltip tooltip-bottom tooltip-primary"
+              data-tip={user.displayName}
+            >
+              <LazyLoad>
+                <img className="rounded-full w-12" src={user.photoURL} alt="" />
+              </LazyLoad>
             </div>
             <button onClick={logOut} className="btn btn-primary w-24">
               Log out

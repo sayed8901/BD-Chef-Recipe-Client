@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Recipe from "./Recipe";
+import LazyLoad from "react-lazy-load";
 
 const Chef = () => {
   const { id } = useParams();
@@ -14,7 +15,9 @@ const Chef = () => {
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col md:flex-row-reverse">
-          <img src={picture} className="max-w-xs rounded-lg shadow-2xl" />
+          <LazyLoad>
+            <img src={picture} className="max-w-xs rounded-lg shadow-2xl" />
+          </LazyLoad>
           <div className="card-body">
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6">{bio}</p>
