@@ -3,17 +3,22 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const Recipe = ({ recipe }) => {
+  // creating a state to hold the "favorite" buttons 'click value'
   const [isClicked, setIsClicked] = useState(false);
 
+  // function to display a toast msg only when "favorite" btn is clicked
   const handleComplete = (e) => {
     toast("Wow! You have successfully added this recipe to favorite!!");
     console.log("onClick");
+
+    // function to check & dynamically change the value of "favorite" btn either clicked or not
     setIsClicked(!isClicked);
     console.log(isClicked);
   };
 
   // console.log(recipe);
   const { name, cooking_method, rating, ingredients } = recipe;
+
   return (
     <div className="card gradient-color text-primary-content">
       <div className="card-body">

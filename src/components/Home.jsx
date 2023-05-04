@@ -7,6 +7,7 @@ import Contact from "./Contact";
 const Home = () => {
   return (
     <div className="mb-8">
+      {/* banner section */}
       <div
         className="hero min-h-screen mb-24"
         style={{

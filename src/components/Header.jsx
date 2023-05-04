@@ -8,7 +8,6 @@ const Header = () => {
   //   console.log(user);
 
   return (
-    // <h1>navbar</h1>
     <div className="navbar sticky top-0 z-10 gradient-color text-black">
       <div className="navbar-start">
         {/* navbar for small screen */}
@@ -115,6 +114,7 @@ const Header = () => {
       </div>
 
       <div className="navbar-end">
+        {/* to dynamically show user photo & name */}
         {user ? (
           <div className="flex gap-4 justify-center items-center">
             <div
@@ -122,7 +122,11 @@ const Header = () => {
               data-tip={user.displayName}
             >
               <LazyLoad>
-                <img className="rounded-full w-12" src={user.photoURL} alt="" />
+                <img
+                  className="rounded-full w-12"
+                  src={user.photoURL}
+                  alt=""
+                />
               </LazyLoad>
             </div>
             <button onClick={logOut} className="btn btn-primary w-24">

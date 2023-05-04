@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <div className="my-container mb-8">
       <Pdf targetRef={ref} filename="assignment10-blog.pdf" >
-        {({ toPdf }) => <button className="btn btn-sm btn-outline fixed right-8" onClick={toPdf}>Save as Pdf</button>}
+        {({ toPdf }) => <button className="btn btn-sm btn-outline w-20 h-auto fixed right-2" onClick={toPdf}>Save as Pdf</button>}
       </Pdf>
 
       <div ref={ref}>

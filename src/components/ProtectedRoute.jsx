@@ -7,8 +7,9 @@ import { TailSpin } from "react-loader-spinner";
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   //   console.log(user);
+
   const location = useLocation();
-//   console.log(location);
+  //   console.log(location);
 
   if (loading) {
     return (
@@ -30,10 +31,13 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
+  // If user is found, then view chef recipe page, other-wise go to the the log in page
   if (user) {
     return children;
   } else {
-    return <Navigate to={"/login"} state={{from: location}} replace></Navigate>;
+    return (
+      <Navigate to={"/login"} state={{ from: location }} replace></Navigate>
+    );
   }
 };
 

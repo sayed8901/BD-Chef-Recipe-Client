@@ -8,13 +8,16 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  // for password view/hide toggling
   const handleToggle = () => {
     setShowPassword(!showPassword);
   };
 
+  // props extracting using AuthContext
   const { setUser, userLogin, googleSignIn, gitHubSignIn } =
     useContext(AuthContext);
 
+  // fromLocation refers to the last path..
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
@@ -32,9 +35,7 @@ const Login = () => {
     const password = form.password.value;
     // console.log(email, password);
 
-
-    // validation
-
+    // password validation
     if (!/(?=.*[A-Z])/.test(password)) {
       setErrorMsg("At least 1 character should be in uppercase!");
       return;
@@ -52,7 +53,7 @@ const Login = () => {
       return;
     }
 
-    
+    // to log in an user
     userLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -84,7 +85,7 @@ const Login = () => {
       });
   };
 
-  //   log in with google popup
+  //   log in with GitHub popup
   const handleGitHubLogIn = () => {
     gitHubSignIn()
       .then((result) => {
@@ -122,6 +123,7 @@ const Login = () => {
           <span className="label-text">Password</span>
         </label>
         <div className="flex justify-between items-center gap-4">
+          {/* based on password shoe/hide toggling, dynamically change the type of input field..*/}
           <input
             type={showPassword ? "text" : "password"}
             name="password"
@@ -129,6 +131,8 @@ const Login = () => {
             className="input input-bordered w-full"
             required
           />
+
+          {/* based on handleToggle function, dynamically change the button text.. */}
           <span className="btn w-20" onClick={handleToggle}>
             {showPassword ? "Hide" : "Show"}
           </span>
@@ -139,6 +143,7 @@ const Login = () => {
         <button className="btn btn-primary">Login</button>
       </div>
 
+      {/* link to go to registration form */}
       <small className="mt-3">
         New to this site?{" "}
         <Link to={"/register"} className="btn btn-sm btn-outline">
@@ -158,6 +163,7 @@ const Login = () => {
         </div>
       </div>
 
+      {/* to dynamically show either error msg or success msg & also apply styles dynamically.... */}
       <p
         className={`text-center my-1 text-xl ${
           errorMsg ? "text-primary" : "text-success"

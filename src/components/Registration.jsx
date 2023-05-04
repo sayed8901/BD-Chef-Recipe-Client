@@ -9,10 +9,12 @@ const Registration = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  // for password view/hide toggling
   const handleToggle = () => {
     setShowPassword(!showPassword);
   };
 
+  // props extracting using AuthContext
   const { setUser, createNewUserByMail, updateUserData } =
     useContext(AuthContext);
   //   console.log(createNewUserByMail);
@@ -30,9 +32,7 @@ const Registration = () => {
     const photoURL = form.photo.value;
     // console.log(email, password, photoURL);
 
-
-    // validation
-
+    // password validation
     if (!/(?=.*[A-Z])/.test(password)) {
       setErrorMsg("At least 1 character should be in uppercase!");
       return;
@@ -50,30 +50,35 @@ const Registration = () => {
       return;
     }
 
-
+    // to create a new user
     createNewUserByMail(email, password)
       .then((result) => {
         const newUser = result.user;
         // console.log(newUser);
+        setUser(newUser);
         setSuccessMsg("New User has been Created Successfully");
 
         //   updating user name to firebase auth
-        updateUserData(name, photoURL)
-          .then(() => {
-            const successMessage =
-              "User profile has been successfully updated.";
-            console.log(successMessage);
-            setSuccessMsg(successMessage);
-            setUser(newUser);
-            console.log(newUser);
-          })
-          .catch((error) => {
-            console.log(error.message);
-            setErrorMsg(error.message);
-          });
+        if (newUser) {
+          updateUserData(name, photoURL)
+            .then(() => {
+              const successMessage =
+                "User profile has been successfully updated.";
+              console.log(successMessage);
+              setSuccessMsg(successMessage);
+              setUser(newUser);
+              console.log(newUser);
+            })
+            .catch((error) => {
+              console.log(error.message);
+              setErrorMsg(error.message);
+            });
+        }
+
         form.reset();
-        navigate("/login");
+        // navigate("/login");
       })
+
       .catch((error) => {
         console.log(error.message);
         setErrorMsg(error.message);
@@ -114,6 +119,7 @@ const Registration = () => {
           <span className="label-text">Password</span>
         </label>
         <div className="flex justify-between items-center gap-4">
+          {/* based on password shoe/hide toggling, dynamically change the type of input field..*/}
           <input
             type={showPassword ? "text" : "password"}
             name="password"
@@ -121,6 +127,8 @@ const Registration = () => {
             className="input input-bordered w-full"
             required
           />
+
+          {/* based on handleToggle function, dynamically change the button text.. */}
           <span className="btn w-20" onClick={handleToggle}>
             {showPassword ? "Hide" : "Show"}
           </span>
@@ -142,6 +150,7 @@ const Registration = () => {
         <button className="btn btn-primary">Register</button>
       </div>
 
+      {/* link to go to log in form */}
       <small className="mt-3">
         Already have an account?{" "}
         <Link to={"/login"} className="btn btn-sm btn-outline">
@@ -149,6 +158,7 @@ const Registration = () => {
         </Link>
       </small>
 
+      {/* to dynamically show either error msg or success msg & also apply styles dynamically.... */}
       <p
         className={`text-center my-1 text-xl ${
           errorMsg ? "text-primary" : "text-success"

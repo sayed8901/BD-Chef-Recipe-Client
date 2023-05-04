@@ -27,6 +27,7 @@ const Chefs = () => {
             occasion or festival caterings.
           </p>
 
+          {/* Using Marquee to sliding the chef cards */}
           <div className="my-container hero">
             <Marquee speed={100} pauseOnHover={true}>
             {
